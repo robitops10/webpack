@@ -1,0 +1,172 @@
+
++---------------------------------------------------------------------------------------------------+
+|																																																		|
+| Check Error on: 																																									|
+| 	. Browser Console: 																																							|
+| 	. Terminal  																																										|
+|																																																		|
+|																																																		|
++-------------------------------------------[ Quick Setup ]-----------------------------------------+
+|																																																		|
+|--------[ Basic Setup ]---------																																		|
+|																																																		|
+| 		Step-1: Setup config file 																																		|
+|																																																		|
+| 				$ cd my-project  																																					|
+| 				$ npm init -y 																																						|
+| 				$ npm install -D webpack webpack-cli    																									|
+|																																																		|
+|																																																		|
+| 		Step-2: Setup config file 																																		|
+|																																																		|
+| 		/webpack-config.js 													   																								|
+| 				module.exports = { 																																				|
+| 					mode: 'development', 									: Show Errors in console 													|
+|																																																		|
+| 					entry: './src/index.js', 							:  																								|
+| 					output: { 																																							|
+| 						path: __dirname + '/public', 				: ( Absolute path required ) 											|
+| 						filename: 'main.js' 								:  																								|
+| 					} 																																											|
+| 				}; 																																												|
+|																																																		|
+|																																																		|
+| 		Step-3: enable npm script: 	[ file name and path ]																						|
+|																																																		|
+| 				/package.json 																																						|
+| 				"scripts" : { 																																						|
+| 					"build" : "webpack --config webpack-config.js" 	 			: (1) By NPM Script 							|
+| 				} 																																												|
+|																																																		|
+|																																																		|
+| 		Step-3: Run Script 																																						|
+| 			$ npm run build 													: 																								|
+|																																																		|
+|																																																		|
+|--------[ Re-Write output folder ]---------																												|
+|																																																		|
+| 				$ npm install -D clean-webpack-plugin 	: Re-build the output Directory on run. 					|
+|																																																		|
+| 		/webpack-config.js 													   																								|
+| 				const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 														|
+|																																																		|
+| 				module.exports = { 																																				|
+|						...																																											|
+|						output: {....}, 																																				|
+|																																																		|
+|						plugins: [ 																																							|
+|						 	new CleanWebpackPlugin() 																															|
+|						] 																																											|
+|																																																		|
+| 				}; 																																												|
+|																																																		|
+|																																																		|
+|--------[ Auto Generated index.html file ]---------																								|
+|																																																		|
+| 				$ npm install -D html-webpack-plugin 		 																									|
+|																																																		|
+| 		/webpack-config.js 													   																								|
+| 				const htmlWebpackPlugin = require('html-webpack-plugin'); 																|
+|																																																		|
+| 				module.exports = { 																																				|
+|						...																																											|
+|						plugins: [ 																																							|
+|						 	new CleanWebpackPlugin(), 																														|
+|																																																		|
+| 						new htmlWebpackPlugin({ 																															|
+| 							template: './src/template/index.html', 			: <title> <%= htmlWebpackPlugin.options.title %> </title> 
+| 							title: 'Home', 															:  																			|
+| 							favicon: './src/template/favicon.ico', 			: Auto load image from this directory. 	|
+| 							minify: false, 															:  																			|
+| 							filename: 'index.html' 											: ( default: index.html ) 							|
+| 						}) 																																										|
+|																																																		|
+|						] 																																											|
+|																																																		|
+| 				}; 																																												|
+|																																																		|
+|																																																		|
+|																																																		|
+|--------[ Load CSS By Javascript ]---------																												|
+|																																																		|
+| 				$ npm install -D css-loader style-loader    																							|
+|																																																		|
+| 		/webpack-config.js 													   																								|
+|																																																		|
+| 				module.exports = { 																																				|
+|						...																																											|
+|						module: { 																																							|
+| 						rules: [ 																																							|
+| 							{  																																									|
+| 								test: /\.css/,  																																	|
+| 								use: ['style-loader', 'css-loader'] 			: 1st 'style-loader', then 'css-loader' |
+| 							} 																																									|
+| 						] 																																										|
+| 					}, 																																											|
+|																																																		|
+|						plugins: [....] 																																				|
+| 				}; 																																												|
+|																																																		|
+| 		/src/index.js 													   																										|
+| 			import './main.css'; 																: this css loaded by build.js 					|
+|																																																		|
+|																																																		|
+|--------[ React ]---------																																					|
+|																																																		|
+| 	$ npm install -D @babel/core 		@babel/preset-env 		@babel/preset-react 		babel-loader 			|
+| 	$ npm install  react react-dom 																																	|
+|																																																		|
+|																																																		|
+| ./webpack-config.js 																																							|
+| 		module.exports = { 																																						|
+|						...																																											|
+| 			module: { 																																									|
+| 			  rules: [ 																																									|
+| 			    { 																																											|
+| 			      test: /\.(js|jsx)$/, 																																	|
+| 			      exclude: /node_modules/, 																															|
+| 			      use: { 																																								|
+| 			        loader: 'babel-loader', 																														|
+| 			        options: { 																																					|
+| 			          presets: ['@babel/preset-env', '@babel/preset-react'] 														|
+| 			        } 																																									|
+| 			      } 																																										|
+| 			    } 																																											|
+| 			  ] 																																												|
+| 			}, 																																													|
+|																																																		|
+| 			plugins: {....} 																																						|
+|																																																		|
+|																																																		|
+|--------[ Live Development Server ]---------																												|
+|																																																		|
+| 	$ npm install -D webpack-dev-server 																														|
+|																																																		|
+|																																																		|
+| 		/webpack-config.js 													   																								|
+| 				module.exports = { 																																				|
+|						mode: 'development', 																																		|
+|																																																		|
+|						devServer: { 																																						|
+|							contentBase: __dirname + '/dist',							: Same name as outpuut Directory 				|
+|							port: 9999, 																																					|
+|							open: true  																	: Open browser on run the script. 			|
+|						},																																											|
+|																																																		|
+|						...																																											|
+|						module: { ....},																																				|
+|						plugins: [....] 																																				|
+| 				}; 																																												|
+|																																																		|
+|																																																		|
+| 		/package.json 													   																										|
+|				...																																													|
+| 		  "scripts": { 																																								|
+| 		    "start": "webpack serve --config webpack-config.js", 	: Live Server run on memory (cache) |
+| 		    "build": "webpack       --config webpack-config.js" 	: Create /dist/ directory  					|
+| 		  }, 																																													|
+|																																																		|
+|																																																		|
+|																																																		|
+|																																																		|
++---------------------------------------------------------------------------------------------------+
