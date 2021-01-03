@@ -150,7 +150,8 @@
 |						devServer: { 																																						|
 |							contentBase: __dirname + '/dist',							: Same name as outpuut Directory 				|
 |							port: 9999, 																																					|
-|							open: true  																	: Open browser on run the script. 			|
+|							open: true,  																	: Open browser on run the script. 			|
+| 						overlay: true 																: Enable WDS, Solve SDS Error 					|
 |						},																																											|
 |																																																		|
 |						...																																											|

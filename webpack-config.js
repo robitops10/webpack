@@ -10,7 +10,8 @@ module.exports = {
 	devServer: {
 		contentBase: destination,
 		port: 9999,
-		open: true 																						// => Open Browser (+By Default refresh)
+		open: true,																						// => Open Browser (+By Default refresh)
+		overlay: true 																				// Enable WDS, Solve SDS Error
 	},
 
 	entry: './src/index.js',
