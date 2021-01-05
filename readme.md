@@ -2,6 +2,11 @@
 <html>
 <head>
 	## Configure Webpack (By Your Self)
+	<style>
+		body {
+			color: hsl(13, 100%, 50%);
+		}
+	</style>
 </head>
 <body>
 How to configure Webpack by your-self:
