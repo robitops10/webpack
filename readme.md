@@ -1,6 +1,5 @@
 ## Why I Configured Webpack manually:
 ---
-
 <h5> Pros: </h5>
 <ol>
     <li> By this way I can know what is going on behind the scane. </li>
@@ -13,28 +12,27 @@
 </ol>
 
 ---
-
 <h5> importing .json file </h5>
 
 - If we need to import JSON File or any file into Project:
 	- We have to use <code>fetch()</code> built-in method Or
 	- <code>axios</code> NPM package 	Which Babel will compile 
 
+---
+<h5>  When we configure webpack for development: </h5>
 
-####  When we configure webpack for development: 
 ```
-  	mode        : 'development'               		// => Show errors in Console,
-		devtool     : 'eval-cheap-module-source-map'  // => Show Original Error File 
-    devServer   : {
-	    contentBase: destination,
-	    port: 9999,
-	    open: true,     // => Open Browser (+By Default refresh)
-	    overlay: true   // Enable WDS, Solve SDS Error
-  	}
+	mode: 'development'  // => Show errors in Console,
+	devtool: 'eval-cheap-module-source-map'  // => Show Original Error File 
+	devServer: {
+		contentBase: destination,
+		port: 9999,
+		open: true,     // => Open Browser (+By Default refresh)
+		overlay: true   // Enable WDS, Solve SDS Error
+}
 ```
 
 ---
-
 <h5> /package.json: </h5>
 		
 		...
@@ -44,7 +42,6 @@
 	  },
 
 ---
-
 <h5> Terminal: </h5>
 
     $ npm [run] start		// => Run Development Server from catche
