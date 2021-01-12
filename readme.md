@@ -1,7 +1,6 @@
 ## Why I Configured Webpack manually:
 <hr />
 
-<p>
 <h5> Pros: </h5>
 <ol>
     <li> By this way I can know what is going on behind the scane. </li>
@@ -12,8 +11,6 @@
 	    <li> NodeJS:  React use NodeJS </li>
 	<ul>
 </ol>
-</p>
-
 <hr />
 
 <h5> importing .json file </h5>
@@ -35,7 +32,6 @@
 	    overlay: true   // Enable WDS, Solve SDS Error
   	}
 ```
-	
 <hr >
 
 <h5> /package.json: </h5>
@@ -45,7 +41,6 @@
 	    "start": "webpack serve --config webpack-config.js", 	// => Built into Browser cache
 	    "build": "webpack       --config webpack-config.js" 	// => Built into project Directory. 
 	  },
-
 <hr >
 
 <h5> Terminal: </h5>
