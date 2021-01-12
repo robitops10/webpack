@@ -21,9 +21,8 @@
 	- <code>axios</code> NPM package 	Which Babel will compile 
 
 
+####  When we configure webpack for development: 
 ```
-  When we configure webpack for development: 
-
   	mode        : 'development'               		// => Show errors in Console,
 		devtool     : 'eval-cheap-module-source-map'  // => Show Original Error File 
     devServer   : {
