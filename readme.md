@@ -16,7 +16,6 @@
 
 <hr />
 
-<p>
 <h5> importing .json file </h5>
 
 - If we need to import JSON File or any file into Project:
@@ -24,7 +23,7 @@
 	- <code>axios</code> NPM package 	Which Babel will compile 
 
 
-
+```
   When we configure webpack for development: 
 
   	mode        : 'development'               		// => Show errors in Console,
@@ -35,7 +34,7 @@
 	    open: true,     														// => Open Browser (+By Default refresh)
 	    overlay: true   														// Enable WDS, Solve SDS Error
   	}
-	
+```
 	
 <hr >
 
