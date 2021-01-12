@@ -27,12 +27,12 @@
   When we configure webpack for development: 
 
   	mode        : 'development'               		// => Show errors in Console,
-		devtool     : 'eval-cheap-module-source-map'  // => Show Original Error File + Location
+		devtool     : 'eval-cheap-module-source-map'  // => Show Original Error File 
     devServer   : {
 	    contentBase: destination,
 	    port: 9999,
-	    open: true,     														// => Open Browser (+By Default refresh)
-	    overlay: true   														// Enable WDS, Solve SDS Error
+	    open: true,     // => Open Browser (+By Default refresh)
+	    overlay: true   // Enable WDS, Solve SDS Error
   	}
 ```
 	
