@@ -20,7 +20,7 @@
 
 
 ###### When we configure webpack for development:
-	mode: 'development'                         // => Show errors in Console,
+	mode: 'development'                             // => Show errors in Console,
 	devtool: 'eval-cheap-module-source-map'  	// => Show Original Error File 
 	devServer: {
 		contentBase: destination,
