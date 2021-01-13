@@ -113,8 +113,13 @@
 |																																																		|
 |--------[ React ]---------																																					|
 |																																																		|
-| 	$ npm install -D @babel/core 		@babel/preset-env 		@babel/preset-react 		babel-loader 			|
 | 	$ npm install  react react-dom 																																	|
+| 	$ npm install -D 	babel-loader  																																|
+| 										@babel/core  																																	|
+| 										@babel/preset-env	 										: ES6 => ES5 														|
+| 										pabel-polyfill  											: async/generator (ES7 => ES5)  				|
+| 										@babel/preset-react 									: JSX => JS 														|
+|																																																		|
 |																																																		|
 |																																																		|
 | ./webpack-config.js 																																							|
