@@ -45,5 +45,6 @@
 ###### Terminal: 
 	$ npm [run] start		// => Run Development Server from catche
 	$ npm run build` 		// => Build /dist
+	$ npm run test 			// => Added Code Syntax & unused code detection by 'ESLint'
 
 
