@@ -36,7 +36,8 @@
 		...
 		"scripts": {
 		"start": "webpack serve --config webpack-config.js", 	// => Built into Browser cache
-		"build": "webpack       --config webpack-config.js" 	// => Built into project Directory. 
+		"build": "webpack       --config webpack-config.js", 	// => Built into project Directory. 
+		"test" : "eslint ." 					// => Test Syntax
 	},
 
 
