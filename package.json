@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack-config.js",
     "build": "webpack       --config webpack-config.js",
-    "test" : "eslint ."
+    "test": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,7 @@
     "webpack-dev-server": "^3.11.1"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }

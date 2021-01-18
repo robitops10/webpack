@@ -44,12 +44,13 @@ module.exports = {
 				use: ['style-loader', 'css-loader']
 			},
 			{
-				test: /\.(js|jsx)/,
 				exclude: /node_modules/,
+				test: /\.(js|jsx)/,
 				use: {
 					loader: 'babel-loader',
 					options: {
- 	          presets: ['@babel/preset-env', '@babel/preset-react']
+ 	          presets: ['@babel/preset-env', '@babel/preset-react'],
+ 	          plugins: ['@babel/plugin-transform-runtime']
 					}
 				}
 			}
