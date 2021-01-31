@@ -29,7 +29,8 @@ module.exports = {
 		contentBase: destination,
 		port: 9999,
 		open: true,																						// => Open Browser (+By Default refresh)
-		overlay: true 																				// Enable WDS, Solve SDS Error
+		overlay: true, 																				// Enable WDS, Solve SDS Error
+		historyApiFallback: true 															// Enabling Client Routing, by disabled Server Routing
 	},
 
 	entry: './src/index.js',
